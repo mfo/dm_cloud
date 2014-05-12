@@ -51,7 +51,7 @@ module DmCloud
       base = {
         :sec_level => sec_level,
         :url_no_query => stream,
-        :expires => Time.now + 1*60*60, # 1 hour from now
+        :expires => (Time.now + 3.hours).to_i, # 3 hour from now
         :nonce => SecureRandom.hex(16)[0,16],
         :secret => DmCloud.config[:secret_key]
       }
