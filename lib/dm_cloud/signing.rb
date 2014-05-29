@@ -131,6 +131,8 @@ module DmCloud
           1 << 5  # A list of 2 characters long country codes in lowercase by comas. If the list starts with a dash, the rule is inverted (ie: cc=fr,gb,de or cc=-fr,it). This data have to be stored in pub-sec-data component
         when :referer
           1 << 6  # A list of URL prefixes separated by spaces stored in the pub-sec-data component (ex: rf=http;//domain.com/a/+http:/domain.com/b/).
+        when :referer_strict
+          1 << 15 # Same as Referer (will deny direct access as well)
       end
     end
 
@@ -147,6 +149,8 @@ module DmCloud
         when :country
           "cc=#{value}"  # A list of 2 characters long country codes in lowercase by comas. If the list starts with a dash, the rule is inverted (ie: cc=fr,gb,de or cc=-fr,it). This data have to be stored in pub-sec-data component
         when :referer
+          "rf=#{value}"  # A list of URL prefixes separated by spaces stored in the pub-sec-data component (ex: rf=http;//domain.com/a/+http:/domain.com/b/).
+        when :referer_strict
           "rf=#{value}"  # A list of URL prefixes separated by spaces stored in the pub-sec-data component (ex: rf=http;//domain.com/a/+http:/domain.com/b/).
         else
           nil
