@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/dm_cloud.rb",
     "lib/dm_cloud/builder/media.rb",
     "lib/dm_cloud/media.rb",
+    "lib/dm_cloud/file.rb",
     "lib/dm_cloud/request.rb",
     "lib/dm_cloud/signing.rb",
     "lib/dm_cloud/streaming.rb",
