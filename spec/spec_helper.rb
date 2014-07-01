@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '/../', 'lib'))
 require 'rubygems'
 require 'rspec'
 require 'rspec/autorun'
+require 'mocha/api'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -35,6 +36,8 @@ class Object
 end
 
 RSpec.configure do |config|
+  config.mock_with :mocha
+
   config.after(:suite) do
     Compare.report
   end

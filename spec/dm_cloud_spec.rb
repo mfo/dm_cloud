@@ -8,7 +8,7 @@ describe DmCloud do
     it "should provide a config on DmCloud" do
       DmCloud.should respond_to :config
     end
-    
+
     it "should be initialized with default values" do
       DmCloud.configure
       DmCloud.config[:security_level].should == 'none'

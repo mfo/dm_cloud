@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/dmcloud.rb",
     "lib/dm_cloud/builder/media.rb",
     "lib/dm_cloud/media.rb",
+    "lib/dm_cloud/file.rb",
     "lib/dm_cloud/request.rb",
     "lib/dm_cloud/signing.rb",
     "lib/dm_cloud/streaming.rb",
@@ -53,7 +54,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<vcr>, [">= 0"])
       s.add_development_dependency(%q<webmock>, [">= 0"])
     else
@@ -61,7 +61,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<vcr>, [">= 0"])
       s.add_dependency(%q<webmock>, [">= 0"])
     end
@@ -70,7 +69,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<vcr>, [">= 0"])
     s.add_dependency(%q<webmock>, [">= 0"])
   end

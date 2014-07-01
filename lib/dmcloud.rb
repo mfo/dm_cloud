@@ -55,4 +55,5 @@ module DmCloud
   autoload(:Media, 'dm_cloud/media')
   autoload(:Request, 'dm_cloud/request')
   autoload(:Signing, 'dm_cloud/signing')
+  autoload(:Signing, 'dm_cloud/file')
 end
