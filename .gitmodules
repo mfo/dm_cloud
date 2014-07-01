@@ -1,0 +1,3 @@
+[submodule "cloudkey-fixtures"]
+	path = cloudkey-fixtures
+	url = git://github.com/dailymotion/cloudkey-fixtures.git
