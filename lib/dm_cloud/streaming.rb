@@ -8,7 +8,7 @@ require 'digest/md5'
 module DmCloud
   class Streaming
       # Default URL to get embed content ou direct url
-      DIRECT_STREAM = "[PROTOCOL]://cdn.dmcloud.net/route/[USER_ID]/[MEDIA_ID]/[ASSET_NAME].[ASSET_EXTENSION]".freeze
+      DIRECT_STREAM = "http://cdn.dmcloud.net/route/[PROTOCOL]/[USER_ID]/[MEDIA_ID]/[ASSET_NAME].[ASSET_EXTENSION]".freeze
       EMBED_STREAM = "[PROTOCOL]://api.dmcloud.net/embed/[USER_ID]/[MEDIA_ID]".freeze
       EMBED_IFRAME = '<iframe width="[WIDTH]" height="[HEIGHT]" frameborder="0" scrolling="no" src="[EMBED_URL]"></iframe>'.freeze
 
@@ -52,18 +52,18 @@ module DmCloud
       # Result :
       #   return a string which contain the signed url like
       #   http://cdn.DmCloud.net/route/<user_id>/<media_id>/<asset_name>.<asset_extension>?auth=<auth_token>
-      def self.url(media_id, asset_name, asset_extension = nil, security = {})
+      def self.url(media_id, asset_name, asset_extension = nil, protocol = nil, security = {})
         raise StandardError, "missing :media_id in params" unless media_id
         raise StandardError, "missing :asset_name in params" unless asset_name
         asset_extension = asset_name.split('_').first unless asset_extension
 
         stream = DIRECT_STREAM.dup
-        stream.gsub!('[PROTOCOL]', DmCloud.config[:protocol])
         stream.gsub!('[USER_ID]', DmCloud.config[:user_key])
+        stream.gsub!('[PROTOCOL]', protocol)
         stream.gsub!('[MEDIA_ID]', media_id)
         stream.gsub!('[ASSET_NAME]', asset_name)
         stream.gsub!('[ASSET_EXTENSION]', asset_extension)
-        
+
         stream += '?auth=[AUTH_TOKEN]'.gsub!('[AUTH_TOKEN]', DmCloud::Signing.sign(stream, security))
         stream
       end
