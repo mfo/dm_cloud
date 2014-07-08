@@ -1,4 +1,5 @@
 require 'net/http/post/multipart'
+require 'json'
 
 module DmCloud
   class File
@@ -17,8 +18,9 @@ module DmCloud
 
       req = Net::HTTP::Post::Multipart.new uri.request_uri, "file" => UploadIO.new(fd, 'video/mp4', ::File.basename(fd))
       res = Net::HTTP.start(uri.host, uri.port) do |http|
-        http.request(req)
+        http.request(req).body
       end
+      JSON.parse(res)
     end
   end
 end
