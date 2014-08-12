@@ -39,7 +39,7 @@ module DmCloud
 
         # the media id
         request[:fields] = []
-
+        request[:media_id] = media_id
         # requested media meta datas
         fields[:meta] = ['title'] unless fields[:meta]
         fields[:meta].each { |value| request[:fields] << "meta.#{value.to_s}" }
@@ -54,7 +54,8 @@ module DmCloud
         # request['extended_stats'][COUNTRY_CODE][TIME_INTERVAL]
 
         assets_names = ['source'] if assets_names.nil?
-        if not fields[:assets]
+
+        if !fields[:assets]
           request = all_assets_fields(request, assets_names)
         else
           assets_names.each do |name|
