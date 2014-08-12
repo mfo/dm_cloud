@@ -18,7 +18,7 @@ module DmCloud
         url = options['url']
         assets_names = options['assets_names']
         assets_parameters = options['assets_parameters']
-        meta = options['meta']
+        meta = options['meta'] || {}
 
         request['url'] = url
 
